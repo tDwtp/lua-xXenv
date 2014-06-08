@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="stylesheet.css" type="text/css"/>
+	</head>
+<body>
+<div id="container">
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div>
+<div id="main">
+	<div id="navigation">
+		<h2>Modules</h2>
+			<ul><li>
+				<a href="index.html">index</a>
+			</li></ul>
+		<ul>
+					<li><a href="base64.html">base64</a></li>
+					<li><a href="bit.html">bit</a></li>
+					<li><a href="coroutine.html">coroutine</a></li>
+					<li><a href="debug.html">debug</a></li>
+					<li>des56</li>
+					<li><a href="ex.html">ex</a></li>
+					<li><a href="global.html">global</a></li>
+					<li><a href="io.html">io</a></li>
+					<li><a href="lfs.html">lfs</a></li>
+					<li><a href="ltn12.html">ltn12</a></li>
+					<li><a href="luacurl.html">luacurl</a></li>
+					<li><a href="luasql.html">luasql</a></li>
+					<li><a href="math.html">math</a></li>
+					<li><a href="md5.html">md5</a></li>
+					<li><a href="mime.html">mime</a></li>
+					<li><a href="os.html">os</a></li>
+					<li><a href="package.html">package</a></li>
+					<li><a href="socket.html">socket</a></li>
+					<li><a href="socket.ftp.html">socket.ftp</a></li>
+					<li><a href="socket.http.html">socket.http</a></li>
+					<li><a href="socket.smtp.html">socket.smtp</a></li>
+					<li><a href="socket.url.html">socket.url</a></li>
+					<li><a href="string.html">string</a></li>
+					<li><a href="table.html">table</a></li>
+					<li><a href="wx.html">wx</a></li>
+					<li><a href="wxaui.html">wxaui</a></li>
+					<li><a href="wxlua.html">wxlua</a></li>
+					<li><a href="wxstc.html">wxstc</a></li>
+		</ul>
+	</div>
+	<div id="content">
+   <h1>Module <code>des56</code></h1>
+   
+<p>Provides the DES-based functions.</p>
+
+			<h2>Usages:</h2>
+		<ul>
+			<li><pre class="example"><code>require("des56")</code></pre></li>
+			<li><pre class="example"><code>local des56 = require("des56")
+</code></pre></li>
+		</ul>
+
+	<h2><a id="#(des56)" >Type <code>des56</code></a></h2>
+		<table class="function_list">
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(des56).crypt">des56.crypt(message, key)</a></td>
+		<td class="summary">
+<p>Encrypts a string, using DES with a 56-bit key.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(des56).decrypt">des56.decrypt(message, key)</a></td>
+		<td class="summary">
+<p>Decrypts a string.</p>
+</td>
+		</tr>
+	</table>
+
+	<h2><a id="#(des56)" >Type <code>des56</code></a></h2>
+		<h3>Field(s)</h3>
+		<dl class="function">
+<dt>
+
+<a id="#(des56).crypt" >
+<strong>des56.crypt(message, key)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Encrypts a string, using DES with a 56-bit key.</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string message </em></code>: 
+an arbitrary binary string to be encrypted</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string key </em></code>: 
+an 8-byte binary string to be used as a key</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#string:</em>
+the cyphertext (binary string)</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(des56).decrypt" >
+<strong>des56.decrypt(message, key)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Decrypts a string.</p>
+
+	
+<p>The input message must be the result of a previous call to <a href="##(des56).crypt">des56.crypt</a>.
+For any msg and key, we have that
+'des56.decrypt(des56.crypt(msg, key), key) == msg'</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string message </em></code>: 
+an arbitrary binary cyphertext to be decrypted</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string key </em></code>: 
+key for en-/decryption</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#string:</em>
+the decrypted text (binary string)</p>
+
+
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="stylesheet.css" type="text/css"/>
+	</head>
+<body>
+<div id="container">
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div>
+<div id="main">
+	<div id="navigation">
+		<h2>Modules</h2>
+			<ul><li>
+				<a href="index.html">index</a>
+			</li></ul>
+		<ul>
+					<li><a href="base64.html">base64</a></li>
+					<li><a href="bit.html">bit</a></li>
+					<li><a href="coroutine.html">coroutine</a></li>
+					<li><a href="debug.html">debug</a></li>
+					<li><a href="des56.html">des56</a></li>
+					<li>ex</li>
+					<li><a href="global.html">global</a></li>
+					<li><a href="io.html">io</a></li>
+					<li><a href="lfs.html">lfs</a></li>
+					<li><a href="ltn12.html">ltn12</a></li>
+					<li><a href="luacurl.html">luacurl</a></li>
+					<li><a href="luasql.html">luasql</a></li>
+					<li><a href="math.html">math</a></li>
+					<li><a href="md5.html">md5</a></li>
+					<li><a href="mime.html">mime</a></li>
+					<li><a href="os.html">os</a></li>
+					<li><a href="package.html">package</a></li>
+					<li><a href="socket.html">socket</a></li>
+					<li><a href="socket.ftp.html">socket.ftp</a></li>
+					<li><a href="socket.http.html">socket.http</a></li>
+					<li><a href="socket.smtp.html">socket.smtp</a></li>
+					<li><a href="socket.url.html">socket.url</a></li>
+					<li><a href="string.html">string</a></li>
+					<li><a href="table.html">table</a></li>
+					<li><a href="wx.html">wx</a></li>
+					<li><a href="wxaui.html">wxaui</a></li>
+					<li><a href="wxlua.html">wxlua</a></li>
+					<li><a href="wxstc.html">wxstc</a></li>
+		</ul>
+	</div>
+	<div id="content">
+   <h1>Module <code>ex</code></h1>
+   
+<p>A recent (Jan 2006) discussion on the mailing list has prompted me to attempt
+to design an extended API which extends the Lua API by adding functions to
+the os and io namespaces.</p>
+
+   
+<p><br />
+This is not a proposal to modify the Lua core, but a design proposal for an
+API which extends the Lua core. This API is meant to provide a more complete
+programming environment for stand-alone Lua programs on today's popular
+operating systems (Windows, MacOSX and POSIX platforms).</p>
+
+			<h2>Usages:</h2>
+		<ul>
+			<li><pre class="example"><code>require("ex")</code></pre></li>
+			<li><pre class="example"><code>local ex = require("ex")
+</code></pre></li>
+		</ul>
+
+	<h2><a id="#(ex)" >Type <code>ex</code></a></h2>
+		<table class="function_list">
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).chdir">ex.chdir(pathname)</a></td>
+		<td class="summary">
+<p>Change working directory.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).currentdir">ex.currentdir()</a></td>
+		<td class="summary">
+<p>Get working directory path .</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).dir">ex.dir(pathname)</a></td>
+		<td class="summary">
+<p>Get an iterator for 'pathname'.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).dirent">ex.dirent(path_file)</a></td>
+		<td class="summary">
+<p>Gets information about a directory entry via pathname or open file.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).environ">ex.environ()</a></td>
+		<td class="summary">
+<p>Get a #table containing all environment values.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).getenv">ex.getenv(name)</a></td>
+		<td class="summary">
+<p>Get an environment value.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).lock">ex.lock(file, mode, offset, length)</a></td>
+		<td class="summary">
+<p>Lock or unlock a file or a portion of a file;
+'mode' is either "r" or "w" or "u"; 'offset' and 'length' are optional
+A mode of "r" requests a read lock, "w" requests a write lock, and "u" releases the lock.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).mkdir">ex.mkdir(dir)</a></td>
+		<td class="summary">
+<p>Create a directory.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).pipe">ex.pipe()</a></td>
+		<td class="summary">
+<p>Create a pipe;
+'rd' and 'wr' are Lua file objects</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).remove">ex.remove(pathname)</a></td>
+		<td class="summary">
+<p>Remove a file or directory.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).setenv">ex.setenv(name, value)</a></td>
+		<td class="summary">
+<p>Set/modify an environment value.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).sleep">ex.sleep(sec_interval, unit)</a></td>
+		<td class="summary">
+<p>Suspends program execution for interval/unit seconds;
+'unit' defaults to 1 and either argument can be floating point.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).spawn">ex.spawn(param)</a></td>
+		<td class="summary">
+<p>Create a child process
+The parameter can be a #string containing the filename of the programm of a</p>
+<h1>table with ont of the following formats: <br /></h1>
+<p>+ {filename, [args-opts]} <br />
++ {command=filename, [args-opts]} <br />
+<br />
+If the (implementation-defined) pathname is not absolute, the program is
+found through an implementation-defined search method (the PATH environment
+variable on most systems).</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(ex).unlock">ex.unlock(offset, length)</a></td>
+		<td class="summary">
+<p>Equivalent to <a href="##(ex).lock">ex.lock</a>(file, "u", offset, length).</p>
+</td>
+		</tr>
+	</table>
+
+			<h2><a id="#(proc)">Type <code>proc</code></a></h2>
+				<table class="function_list">
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(proc).wait">proc:wait()</a></td>
+		<td class="summary">
+<p>Wait for child process termination.</p>
+</td>
+		</tr>
+	</table>
+
+	<h2><a id="#(ex)" >Type <code>ex</code></a></h2>
+		<h3>Field(s)</h3>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).chdir" >
+<strong>ex.chdir(pathname)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Change working directory.</p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string pathname </em></code>: 
+directory to change to</p>
+
+
+				</li>
+		</ul>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).currentdir" >
+<strong>ex.currentdir()</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Get working directory path .</p>
+
+			<h3>Usage:</h3>
+		<pre class="example"><code>pathname = os.currentdir()
+</code></pre>
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).dir" >
+<strong>ex.dir(pathname)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Get an iterator for 'pathname'.</p>
+
+	
+<p>Special directory entries such as "." and ".." are not returned. </p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string pathname </em></code>: 
+directory to get the iterator for; if midsing the current working directory will be used</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#function:</em>
+a function like the next-function for iterating in a for-loop</p>
+
+			<h3>Usage:</h3>
+		<pre class="example"><code>for entry in os.dir(pathname) do ; end
+</code></pre>
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).dirent" >
+<strong>ex.dirent(path_file)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Gets information about a directory entry via pathname or open file.</p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em> path_file </em></code>: 
+a #string containing a path to directory or a <a href="io.html##(file)">io#file</a> handle</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#table:</em>
+containing name, size and type information {type=#string,size=#number,name=#string}</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).environ" >
+<strong>ex.environ()</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Get a #table containing all environment values.</p>
+
+		<h3>Return value</h3>
+				
+<p><em>#table:</em>
+a copy of the environment </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).getenv" >
+<strong>ex.getenv(name)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Get an environment value.</p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string name </em></code>: 
+name of the environment value</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>the environment value (as #string)</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).lock" >
+<strong>ex.lock(file, mode, offset, length)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Lock or unlock a file or a portion of a file;
+'mode' is either "r" or "w" or "u"; 'offset' and 'length' are optional
+A mode of "r" requests a read lock, "w" requests a write lock, and "u" releases the lock.</p>
+
+	
+<p>Note that the locks may be either advisory or mandatory. </p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em> file </em></code>: 
+a #string containing path to file or a <a href="io.html##(file)">io#file</a> handle.</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string mode </em></code>: 
+("r|"w"|"u")</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number offset </em></code>: 
+<em>(optional)</em> offset in the file</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number length </em></code>: 
+buffer length</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p><a href="io.html##(file)">io#file</a> handle</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).mkdir" >
+<strong>ex.mkdir(dir)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Create a directory.</p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string dir </em></code>: 
+the directory to create</p>
+
+
+				</li>
+		</ul>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).pipe" >
+<strong>ex.pipe()</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Create a pipe;
+'rd' and 'wr' are Lua file objects</p>
+
+			<h3>Usage:</h3>
+		<pre class="example"><code>rd, wr = io.pipe()
+</code></pre>
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).remove" >
+<strong>ex.remove(pathname)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Remove a file or directory.</p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string pathname </em></code>: 
+the file/directory to remove</p>
+
+
+				</li>
+		</ul>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).setenv" >
+<strong>ex.setenv(name, value)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Set/modify an environment value.</p>
+
+	
+<p>If #nil is used as value it will remove that environment value.</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string name </em></code>: 
+name of the environment value</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string value </em></code>: 
+the value of the environment value</p>
+
+
+				</li>
+		</ul>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).sleep" >
+<strong>ex.sleep(sec_interval, unit)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Suspends program execution for interval/unit seconds;
+'unit' defaults to 1 and either argument can be floating point.</p>
+
+	
+<p>The particular sub-second precision is implementation-defined.</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number sec_interval </em></code>: 
+seconds or interval (if unit is defined) to sleep for</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number unit </em></code>: 
+unit of the interval to sleep for</p>
+
+				</li>
+		</ul>
+			<h3>Usages:</h3>
+		<ul>
+			<li><pre class="example"><code>os.sleep(3.8) -- sleep for 3.8 seconds</code></pre></li>
+			<li><pre class="example"><code>os.sleep(3800000, 1e6) -- sleep for 3 800 000 microseconds (1e-6/0.00001s = 1 microsecond)</code></pre></li>
+			<li><pre class="example"><code>os.sleep(380, 100) -- sleep for 380 ticks (0.01s = 1 tick)
+</code></pre></li>
+		</ul>
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).spawn" >
+<strong>ex.spawn(param)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Create a child process
+The parameter can be a #string containing the filename of the programm of a</p>
+<h1>table with ont of the following formats: <br /></h1>
+<p>+ {filename, [args-opts]} <br />
++ {command=filename, [args-opts]} <br />
+<br />
+If the (implementation-defined) pathname is not absolute, the program is
+found through an implementation-defined search method (the PATH environment
+variable on most systems).</p>
+
+	
+<p><br />
+<br />
+If specified, [args-opts] is one or more of the following keys:<br />
++ [1]..[n]= the command line arguments <br />
++ args = an array of command line arguments <br />
++ env = a table of environment variables <br />
++ stdin= stdout= stderr= <a href="io.html##(file)">io#file</a> objects for standard input, output, and error respectively <br />
+<br />
+It is an error if both integer keys and an 'args' key are specified. <br />
+An implementation may provide special behavior if a zeroth argument (options.args[0] or options[0]) is provided. </p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em> param </em></code>: 
+a #string containing the program name or #table of the format given above</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em><a href="##(proc)">#proc</a>:</em>
+a userdatum of the #proc type. (so the "programm" itself)</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(ex).unlock" >
+<strong>ex.unlock(offset, length)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Equivalent to <a href="##(ex).lock">ex.lock</a>(file, "u", offset, length).</p>
+
+	
+<p>Note that both <a href="io.html##(file).lock">io#file.lock</a> and <a href="io.html##(file).unlock">io#file.unlock</a> extend the metatable for Lua file objects.</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number offset </em></code>: 
+<em>(optional)</em> offset in the file</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number length </em></code>: 
+<em>(optional)</em> buffer length</p>
+
+
+				</li>
+		</ul>
+</dd>
+</dl>
+
+			<h2><a id="#(#)" >Type <code>#</code></a></h2>
+				
+<p>A userdatum to get the exitcode returned by <a href="##(ex).spawn">ex.spawn</a></p>
+
+
+			<h2><a id="#(proc)" >Type <code>proc</code></a></h2>
+				<h3>Field(s)</h3>
+		<dl class="function">
+<dt>
+
+<a id="#(proc).wait" >
+<strong>proc:wait()</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Wait for child process termination.</p>
+
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+the exitcode of the <a href="##(proc)">#proc</a></p>
+
+			<h3>Usage:</h3>
+		<pre class="example"><code>exitcode = proc:wait()
+</code></pre>
+
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>

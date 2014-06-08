@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="stylesheet.css" type="text/css"/>
+	</head>
+<body>
+<div id="container">
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div>
+<div id="main">
+	<div id="navigation">
+		<h2>Modules</h2>
+			<ul><li>
+				<a href="index.html">index</a>
+			</li></ul>
+		<ul>
+					<li><a href="base64.html">base64</a></li>
+					<li>bit</li>
+					<li><a href="coroutine.html">coroutine</a></li>
+					<li><a href="debug.html">debug</a></li>
+					<li><a href="des56.html">des56</a></li>
+					<li><a href="ex.html">ex</a></li>
+					<li><a href="global.html">global</a></li>
+					<li><a href="io.html">io</a></li>
+					<li><a href="lfs.html">lfs</a></li>
+					<li><a href="ltn12.html">ltn12</a></li>
+					<li><a href="luacurl.html">luacurl</a></li>
+					<li><a href="luasql.html">luasql</a></li>
+					<li><a href="math.html">math</a></li>
+					<li><a href="md5.html">md5</a></li>
+					<li><a href="mime.html">mime</a></li>
+					<li><a href="os.html">os</a></li>
+					<li><a href="package.html">package</a></li>
+					<li><a href="socket.html">socket</a></li>
+					<li><a href="socket.ftp.html">socket.ftp</a></li>
+					<li><a href="socket.http.html">socket.http</a></li>
+					<li><a href="socket.smtp.html">socket.smtp</a></li>
+					<li><a href="socket.url.html">socket.url</a></li>
+					<li><a href="string.html">string</a></li>
+					<li><a href="table.html">table</a></li>
+					<li><a href="wx.html">wx</a></li>
+					<li><a href="wxaui.html">wxaui</a></li>
+					<li><a href="wxlua.html">wxlua</a></li>
+					<li><a href="wxstc.html">wxstc</a></li>
+		</ul>
+	</div>
+	<div id="content">
+   <h1>Module <code>bit</code></h1>
+   
+<p>C library providing bitwise operations on fixed-sized bitfields implemented as Lua numbers.</p>
+
+   
+<p>Has consistent semantics across 16, 32 and 64 bit platforms as
+well as IEEE 754 doubles, int32<em>t and int64</em>t lua_Number.</p>
+
+			<h2>Usages:</h2>
+		<ul>
+			<li><pre class="example"><code>require("bit")</code></pre></li>
+			<li><pre class="example"><code>local bit = require("bit")
+</code></pre></li>
+		</ul>
+
+	<h2><a id="#(bit)" >Type <code>bit</code></a></h2>
+		<table class="function_list">
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).arshift">bit.arshift(x, n)</a></td>
+		<td class="summary">
+<p>arithmetic right-shift of x by n bits</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).band">bit.band(x1, x2, ...)</a></td>
+		<td class="summary">
+<p>bitwise and of x1, x2, ...</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).bnot">bit.bnot(x)</a></td>
+		<td class="summary">
+<p>bitwise not of x.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).bor">bit.bor(x1, x2, ...)</a></td>
+		<td class="summary">
+<p>bitwise or of x1, x2, ...</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).bswap">bit.bswap(x)</a></td>
+		<td class="summary">
+<p>byte-swap of x (little-endian &lt;-> big-endian)</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).bxor">bit.bxor(x1, x2, ...)</a></td>
+		<td class="summary">
+<p>bitwise xor of x1, x2, ...</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).lshift">bit.lshift(x, n)</a></td>
+		<td class="summary">
+<p>left-shift of x by n bits</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).rol">bit.rol(x, n)</a></td>
+		<td class="summary">
+<p>left-rotate of x by n bits</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).ror">bit.ror(x, n)</a></td>
+		<td class="summary">
+<p>right-rotate of x by n bits</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).rshift">bit.rshift(x, n)</a></td>
+		<td class="summary">
+<p>logical right-shift of x by n bits</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(bit).tobit">bit.tobit(x)</a></td>
+		<td class="summary">
+<p>Normalize number to the numeric range of bit operations (all bit ops use this implicitly)</p>
+</td>
+		</tr>
+	</table>
+
+	<h2><a id="#(bit)" >Type <code>bit</code></a></h2>
+		<h3>Field(s)</h3>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).arshift" >
+<strong>bit.arshift(x, n)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>arithmetic right-shift of x by n bits</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x </em></code>: 
+number to shift</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number n </em></code>: 
+number to shift by</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+the shifted number</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).band" >
+<strong>bit.band(x1, x2, ...)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>bitwise and of x1, x2, ...</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x1 </em></code>: 
+first number of the operation</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number x2 </em></code>: 
+second number of the operation</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number ... </em></code>: 
+other numbers of the operation</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+number as the result of the operation</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).bnot" >
+<strong>bit.bnot(x)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>bitwise not of x.</p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x </em></code>: 
+number to perform operation on</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+number as the result of the operation</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).bor" >
+<strong>bit.bor(x1, x2, ...)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>bitwise or of x1, x2, ...</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x1 </em></code>: 
+first number of the operation</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number x2 </em></code>: 
+second number of the operation</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number ... </em></code>: 
+other numbers of the operation</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+number as the result of the operation</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).bswap" >
+<strong>bit.bswap(x)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>byte-swap of x (little-endian &lt;-> big-endian)</p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x </em></code>: 
+number to swap</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+the swaped number</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).bxor" >
+<strong>bit.bxor(x1, x2, ...)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>bitwise xor of x1, x2, ...</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x1 </em></code>: 
+first number of the operation</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number x2 </em></code>: 
+second number of the operation</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number ... </em></code>: 
+other numbers of the operation</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+number as the result of the operation</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).lshift" >
+<strong>bit.lshift(x, n)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>left-shift of x by n bits</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x </em></code>: 
+number to shift</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number n </em></code>: 
+number to shift by</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+the shifted number</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).rol" >
+<strong>bit.rol(x, n)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>left-rotate of x by n bits</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x </em></code>: 
+number to rotate</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number n </em></code>: 
+number to rotate by</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+the rotated number</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).ror" >
+<strong>bit.ror(x, n)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>right-rotate of x by n bits</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x </em></code>: 
+number to rotate</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number n </em></code>: 
+number to rotate by</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+the rotated number</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).rshift" >
+<strong>bit.rshift(x, n)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>logical right-shift of x by n bits</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x </em></code>: 
+number to shift</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number n </em></code>: 
+number to shift by</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+the shifted number</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(bit).tobit" >
+<strong>bit.tobit(x)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Normalize number to the numeric range of bit operations (all bit ops use this implicitly)</p>
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number x </em></code>: 
+the number to normalize</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#number:</em>
+normalized number</p>
+
+
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>
