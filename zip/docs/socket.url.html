@@ -1,0 +1,443 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="stylesheet.css" type="text/css"/>
+	</head>
+<body>
+<div id="container">
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div>
+<div id="main">
+	<div id="navigation">
+		<h2>Modules</h2>
+			<ul><li>
+				<a href="index.html">index</a>
+			</li></ul>
+		<ul>
+					<li><a href="base64.html">base64</a></li>
+					<li><a href="bit.html">bit</a></li>
+					<li><a href="coroutine.html">coroutine</a></li>
+					<li><a href="debug.html">debug</a></li>
+					<li><a href="des56.html">des56</a></li>
+					<li><a href="ex.html">ex</a></li>
+					<li><a href="global.html">global</a></li>
+					<li><a href="io.html">io</a></li>
+					<li><a href="lfs.html">lfs</a></li>
+					<li><a href="ltn12.html">ltn12</a></li>
+					<li><a href="luacurl.html">luacurl</a></li>
+					<li><a href="luasql.html">luasql</a></li>
+					<li><a href="math.html">math</a></li>
+					<li><a href="md5.html">md5</a></li>
+					<li><a href="mime.html">mime</a></li>
+					<li><a href="os.html">os</a></li>
+					<li><a href="package.html">package</a></li>
+					<li><a href="socket.html">socket</a></li>
+					<li><a href="socket.ftp.html">socket.ftp</a></li>
+					<li><a href="socket.http.html">socket.http</a></li>
+					<li><a href="socket.smtp.html">socket.smtp</a></li>
+					<li>socket.url</li>
+					<li><a href="string.html">string</a></li>
+					<li><a href="table.html">table</a></li>
+					<li><a href="wx.html">wx</a></li>
+					<li><a href="wxaui.html">wxaui</a></li>
+					<li><a href="wxlua.html">wxlua</a></li>
+					<li><a href="wxstc.html">wxstc</a></li>
+		</ul>
+	</div>
+	<div id="content">
+   <h1>Module <code>socket.url</code></h1>
+   
+<p> The url namespace provides functions to parse, protect, and build URLs, as well as functions to compose absolute URLs from base and relative URLs, according to <a href="http://www.ietf.org/rfc/rfc2396.txt">RFC 2396</a>.</p>
+
+   
+
+<p> To obtain the url namespace, run:</p>
+
+<pre><code>-- loads the URL module 
+local url = require("socket.url")
+</code></pre>
+
+<p> An URL is defined by the following grammar:</p>
+
+<pre><code>&lt;url&gt; ::= [&lt;scheme&gt;:][//&lt;authority&gt;][/&lt;path&gt;][;&lt;params&gt;][?&lt;query&gt;][#&lt;fragment&gt;]
+&lt;authority&gt; ::= [&lt;userinfo&gt;@]&lt;host&gt;[:&lt;port&gt;]
+&lt;userinfo&gt; ::= &lt;user&gt;[:&lt;password&gt;]
+&lt;path&gt; ::= {&lt;segment&gt;/}&lt;segment&gt;
+</code></pre>
+
+	<h2><a id="#(socket.url)" >Type <code>socket.url</code></a></h2>
+		<table class="function_list">
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(socket.url).absolute">socket.url.absolute(base, relative)</a></td>
+		<td class="summary">
+<p>Builds an absolute URL from a base URL and a relative URL.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(socket.url).build">socket.url.build(parsed_url)</a></td>
+		<td class="summary">
+<p>Rebuilds an URL from its parts.</p>
+
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(socket.url).build_path">socket.url.build_path(segments, unsafe)</a></td>
+		<td class="summary">
+<p>Builds a <em><path></em> component from a list of <em><segment></em> parts.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(socket.url).escape">socket.url.escape(content)</a></td>
+		<td class="summary">
+<p>Applies the URL escaping content coding to a string each byte is encoded as a percent character followed by the two byte hexadecimal representation of its integer value.</p>
+
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(socket.url).parse">socket.url.parse(url, default)</a></td>
+		<td class="summary">
+<p>Parses an URL given as a string into a Lua table with its components.</p>
+
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(socket.url).parse_path">socket.url.parse_path(path)</a></td>
+		<td class="summary">
+<p>Breaks a <em><path></em> URL component into all its <em><segment></em> parts.</p>
+
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(socket.url).unescape">socket.url.unescape(content)</a></td>
+		<td class="summary">
+<p>Removes the URL escaping content coding from a string.</p>
+
+</td>
+		</tr>
+	</table>
+
+	<h2><a id="#(socket.url)" >Type <code>socket.url</code></a></h2>
+		<h3>Field(s)</h3>
+		<dl class="function">
+<dt>
+
+<a id="#(socket.url).absolute" >
+<strong>socket.url.absolute(base, relative)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Builds an absolute URL from a base URL and a relative URL.</p>
+
+	
+
+<p>Note: The rules that govern the composition are fairly complex, and are
+described in detail in <a href="http://www.ietf.org/rfc/rfc2396.txt">RFC 2396</a>. The
+example bellow should give an idea of what the rules are.</p>
+
+<pre><code>http://a/b/c/d;p?q
+
++
+
+g:h      =  g:h
+g        =  http://a/b/c/g
+./g      =  http://a/b/c/g
+g/       =  http://a/b/c/g/
+/g       =  http://a/g
+//g      =  http://g
+?y       =  http://a/b/c/?y
+g?y      =  http://a/b/c/g?y
+#s       =  http://a/b/c/d;p?q#s
+g#s      =  http://a/b/c/g#s
+g?y#s    =  http://a/b/c/g?y#s
+;x       =  http://a/b/c/;x
+g;x      =  http://a/b/c/g;x
+g;x?y#s  =  http://a/b/c/g;x?y#s
+.        =  http://a/b/c/
+./       =  http://a/b/c/
+..       =  http://a/b/
+../      =  http://a/b/
+../g     =  http://a/b/g
+../..    =  http://a/
+../../   =  http://a/
+../../g  =  http://a/g
+</code></pre>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string base </em></code>: 
+The base URL or a parsed URL table.</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string relative </em></code>: 
+The relative URL.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#string:</em>
+The absolute URL. </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(socket.url).build" >
+<strong>socket.url.build(parsed_url)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Rebuilds an URL from its parts.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#table parsed_url </em></code>: 
+With same components returned by
+<a href="##(socket.url).parse">socket.url.parse</a>. Lower level components, if specified, take precedence
+ over high level components of the URL grammar.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#string:</em>
+The built URL.</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(socket.url).build_path" >
+<strong>socket.url.build_path(segments, unsafe)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Builds a <em><path></em> component from a list of <em><segment></em> parts.</p>
+
+	
+
+<p>Before composition, any reserved characters found in a segment are escaped into
+their protected form, so that the resulting path is a valid URL path component.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#table segments </em></code>: 
+A list of strings with the <em><segment></em> parts.</p>
+
+				</li>
+				<li>
+				
+<p><code><em> unsafe </em></code>: 
+If is anything but nil, reserved characters are left untouched.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#string:</em>
+With the built <em><path></em> component. </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(socket.url).escape" >
+<strong>socket.url.escape(content)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Applies the URL escaping content coding to a string each byte is encoded as a percent character followed by the two byte hexadecimal representation of its integer value.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string content </em></code>: 
+The <em>#string</em> to be encoded.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#string:</em>
+The encoded string.</p>
+
+			<h3>Usage:</h3>
+		<pre class="example"><code>-- load url module
+url = require("socket.url")
+
+code = url.escape("/#?;")
+code = "%2f%23%3f%3b"
+</code></pre>
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(socket.url).parse" >
+<strong>socket.url.parse(url, default)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Parses an URL given as a string into a Lua table with its components.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string url </em></code>: 
+The URL to be parsed.</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#table default </em></code>: 
+If present, it is used to store the parsed fields. Only
+ fields present in the URL are overwritten. Therefore, this table can be used
+ to pass default values for each field.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#table:</em>
+All the URL components:</p>
+<pre><code>parsed_url = {
+  url = string,
+  scheme = string,
+  authority = string,
+  path = string,
+  params = string,
+  query = string,
+  fragment = string,
+  userinfo = string,
+  host = string,
+  port = string,
+  user = string,
+  password = string
+}
+</code></pre>
+
+			<h3>Usage:</h3>
+		<pre class="example"><code>-- load url module
+url = require("socket.url")
+
+parsed_url = url.parse("http://www.example.com/cgilua/index.lua?a=2#there")
+-- parsed_url = {
+--   scheme = "http",
+--   authority = "www.example.com",
+--   path = "/cgilua/index.lua"
+--   query = "a=2",
+--   fragment = "there",
+--   host = "www.puc-rio.br",
+-- }
+
+parsed_url = url.parse("ftp://root:passwd@unsafe.org/pub/virus.exe;type=i")
+-- parsed_url = {
+--   scheme = "ftp",
+--   authority = "root:passwd@unsafe.org",
+--   path = "/pub/virus.exe",
+--   params = "type=i",
+--   userinfo = "root:passwd",
+--   host = "unsafe.org",
+--   user = "root",
+--   password = "passwd",
+-- }
+</code></pre>
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(socket.url).parse_path" >
+<strong>socket.url.parse_path(path)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Breaks a <em><path></em> URL component into all its <em><segment></em> parts.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string path </em></code>: 
+With the path to be parsed.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>Since some characters are reserved in URLs, they must be escaped
+ whenever present in a <path> component. Therefore, before returning a list
+ with all the parsed segments, the function removes escaping from all of them. </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(socket.url).unescape" >
+<strong>socket.url.unescape(content)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Removes the URL escaping content coding from a string.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string content </em></code>: 
+The string to be decoded.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#string:</em>
+The decoded string. </p>
+
+
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>

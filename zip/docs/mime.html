@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="stylesheet.css" type="text/css"/>
+	</head>
+<body>
+<div id="container">
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div>
+<div id="main">
+	<div id="navigation">
+		<h2>Modules</h2>
+			<ul><li>
+				<a href="index.html">index</a>
+			</li></ul>
+		<ul>
+					<li><a href="base64.html">base64</a></li>
+					<li><a href="bit.html">bit</a></li>
+					<li><a href="coroutine.html">coroutine</a></li>
+					<li><a href="debug.html">debug</a></li>
+					<li><a href="des56.html">des56</a></li>
+					<li><a href="ex.html">ex</a></li>
+					<li><a href="global.html">global</a></li>
+					<li><a href="io.html">io</a></li>
+					<li><a href="lfs.html">lfs</a></li>
+					<li><a href="ltn12.html">ltn12</a></li>
+					<li><a href="luacurl.html">luacurl</a></li>
+					<li><a href="luasql.html">luasql</a></li>
+					<li><a href="math.html">math</a></li>
+					<li><a href="md5.html">md5</a></li>
+					<li>mime</li>
+					<li><a href="os.html">os</a></li>
+					<li><a href="package.html">package</a></li>
+					<li><a href="socket.html">socket</a></li>
+					<li><a href="socket.ftp.html">socket.ftp</a></li>
+					<li><a href="socket.http.html">socket.http</a></li>
+					<li><a href="socket.smtp.html">socket.smtp</a></li>
+					<li><a href="socket.url.html">socket.url</a></li>
+					<li><a href="string.html">string</a></li>
+					<li><a href="table.html">table</a></li>
+					<li><a href="wx.html">wx</a></li>
+					<li><a href="wxaui.html">wxaui</a></li>
+					<li><a href="wxlua.html">wxlua</a></li>
+					<li><a href="wxstc.html">wxstc</a></li>
+		</ul>
+	</div>
+	<div id="content">
+   <h1>Module <code>mime</code></h1>
+   
+<p>The <em>mime</em> namespace offers filters that apply and remove common content transfer encodings, such as Base64 and Quoted-Printable.</p>
+
+   
+
+<p>It also provides functions to break text into lines and change the end-of-line
+convention. MIME is described mainly in RFC 2045, 2046, 2047, 2048, and 2049.</p>
+
+<p>All functionality provided by the MIME module follows the ideas presented in
+LTN012, Filters sources and sinks.</p>
+
+<p>To obtain the mime namespace, run:</p>
+
+<pre><code>-- loads the MIME module and everything it requires
+local mime = require("mime")
+</code></pre>
+
+
+	<h2><a id="#(mime)" >Type <code>mime</code></a></h2>
+		<table class="function_list">
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).b64">mime.b64(C, D)</a></td>
+		<td class="summary">
+<p>Low-level filter to perform Base64 encoding.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).decode">mime.decode(style)</a></td>
+		<td class="summary">
+<p>Returns a filter that decodes data from a given transfer content encoding.</p>
+
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).dot">mime.dot(m, B)</a></td>
+		<td class="summary">
+<p>Low-level filter to perform SMTP stuffing and enable transmission of messages containing the sequence "CRLF.CRLF".</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).encode">mime.encode(style, mode)</a></td>
+		<td class="summary">
+<p>Although both transfer content encodings specify a limit for the line length,
+the encoding filters do not break text into lines (for added flexibility).</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).eol">mime.eol(C, D, marker)</a></td>
+		<td class="summary">
+<p>Low-level filter to perform end-of-line marker translation.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).normalize">mime.normalize(marker)</a></td>
+		<td class="summary">
+<p>Converts most common end-of-line markers to a specific given marker.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).qp">mime.qp(C, D, marker)</a></td>
+		<td class="summary">
+<p>Low-level filter to perform Quoted-Printable encoding.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).qpwrp">mime.qpwrp(n, B, length)</a></td>
+		<td class="summary">
+<p>Low-level filter to break Quoted-Printable text into lines.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).stuff">mime.stuff()</a></td>
+		<td class="summary">
+<p>Creates and returns a filter that performs stuffing of SMTP messages.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).unb64">mime.unb64(C, D)</a></td>
+		<td class="summary">
+<p>Low-level filter to perform Base64 decoding.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).unqp">mime.unqp(n, B, length)</a></td>
+		<td class="summary">
+<p>Low-level filter to break text into lines with CRLF marker.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(mime).wrap">mime.wrap(style, length)</a></td>
+		<td class="summary">
+<p>Returns a filter that breaks data into lines.</p>
+</td>
+		</tr>
+	</table>
+
+	<h2><a id="#(mime)" >Type <code>mime</code></a></h2>
+		<h3>Field(s)</h3>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).b64" >
+<strong>mime.b64(C, D)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Low-level filter to perform Base64 encoding.</p>
+
+	
+
+<p>Note: The simplest use of this function is to encode a string into it's Base64
+transfer content encoding. Notice the extra parenthesis around the call to
+<em>mime.b64</em>, to discard the second return value. </p>
+<pre><code>print((mime.b64("diego:password")))
+--&gt; ZGllZ286cGFzc3dvcmQ=
+</code></pre>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string C </em></code>: </p>
+
+				</li>
+				<li>
+				
+<p><code><em> D </em></code>: 
+(optional)</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>With</p>
+<pre><code>A, B = mime.b64(C [, D])
+</code></pre>
+<p> <em>A</em> is the encoded version of the largest prefix of <em>C..D</em> that can be encoded
+ unambiguously. B has the remaining bytes of <em>C..D</em>, before encoding. If <em>D</em> is
+ <em>#nil</em>, <em>A</em> is padded with the encoding of the remaining bytes of <em>C</em>. </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).decode" >
+<strong>mime.decode(style)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Returns a filter that decodes data from a given transfer content encoding.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string style </em></code>: 
+Can be <strong>"base64"</strong> or <strong>"quoted-printable"</strong>.</p>
+
+
+				</li>
+		</ul>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).dot" >
+<strong>mime.dot(m, B)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Low-level filter to perform SMTP stuffing and enable transmission of messages containing the sequence "CRLF.CRLF".</p>
+
+	
+
+<p>Note: The message body is defined to begin with an implicit CRLF. Therefore, to
+stuff a message correctly, the first <em>m</em> should have the value 2.</p>
+<pre><code>print((string.gsub(mime.dot(2, ".\r\nStuffing the message.\r\n.\r\n."), "\r\n", "\\n")))
+--&gt; ..\nStuffing the message.\n..\n..
+</code></pre>
+
+<p>Note: The <a href="smtp.html##(smtp).send">smtp#smtp.send</a> function uses this filter automatically. You don't
+need to apply it again.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number m </em></code>: </p>
+
+				</li>
+				<li>
+				
+<p><code><em> B </em></code>: 
+(optional)</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>With</p>
+<pre><code>A, n = mime.dot(m [, B])
+</code></pre>
+<p> <em>A</em> is the stuffed version of <em>B</em>. <em>'n'</em> gives the number of characters from
+ the sequence CRLF seen in the end of <em>B</em>. <em>'m'</em> should tell the same, but for
+ the previous chunk. </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).encode" >
+<strong>mime.encode(style, mode)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Although both transfer content encodings specify a limit for the line length,
+the encoding filters do not break text into lines (for added flexibility).</p>
+
+	
+<p>Below is a filter that converts binary data to the Base64 transfer content
+encoding and breaks it into lines of the correct size.</p>
+
+<pre><code>base64 = ltn12.filter.chain(
+  mime.encode("base64"),
+  mime.wrap("base64")
+)
+</code></pre>
+<p>Note: Text data <em>has</em> to be converted to canonic form before being encoded.</p>
+
+<pre><code>base64 = ltn12.filter.chain(
+  mime.normalize(),
+  mime.encode("base64"),
+  mime.wrap("base64")
+)
+</code></pre>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string style </em></code>: 
+Can be <strong>"base64"</strong> or <strong>"quoted-printable"</strong>.</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string mode </em></code>: 
+(optional) In the Quoted-Printable case, the user can
+ specify whether the data is textual or binary, by passing the mode strings
+ <em>"text"</em> or <em>"binary"</em>. Mode defaults to <em>"text"</em>. </p>
+
+
+				</li>
+		</ul>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).eol" >
+<strong>mime.eol(C, D, marker)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Low-level filter to perform end-of-line marker translation.</p>
+
+	
+
+<p>For each chunk, the function needs to know if the last character of the
+previous chunk could be part of an end-of-line marker or not. This is the
+context the function receives besides the chunk. An updated version of the
+context is returned after each new chunk.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number C </em></code>: 
+The ASCII value of the last character of the previous chunk,
+ if it was a candidate for line break, or 0 otherwise. </p>
+
+				</li>
+				<li>
+				
+<p><code><em> D </em></code>: 
+(optional)</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string marker </em></code>: 
+(optional) Gives the new end-of-line marker and defaults
+ to CRLF. </p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>With</p>
+<pre><code>A, B = mime.eol(C [, D, marker])
+</code></pre>
+<p> <em>A</em> is the translated version of <em>D</em>. <em>C</em> is the ASCII value of the last
+ character of the previous chunk, if it was a candidate for line break, or 0
+ otherwise. <em>B</em> is the same as <em>C</em>, but for the current chunk. <em>Marker</em> gives
+ the new end-of-line marker and defaults to CRLF.</p>
+
+			<h3>Usage:</h3>
+		<pre class="example"><code>-- translates the end-of-line marker to UNIX
+unix = mime.eol(0, dos, "\n") 
+</code></pre>
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).normalize" >
+<strong>mime.normalize(marker)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Converts most common end-of-line markers to a specific given marker.</p>
+
+	
+
+<p>Note: There is no perfect solution to this problem. Different end-of-line
+markers are an evil that will probably plague developers forever. This function
+, however, will work perfectly for text created with any of the most common
+end-of-line markers, i.e. the Mac OS (CR), the Unix (LF), or the DOS (CRLF)
+conventions. Even if the data has mixed end-of-line markers, the function will
+still work well, although it doesn't guarantee that the number of empty lines
+will be correct.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em> marker </em></code>: 
+The new marker. It defaults to CRLF, the canonic end-of-line
+ marker defined by the MIME standard.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>The function returns a filter that performs the conversion. </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).qp" >
+<strong>mime.qp(C, D, marker)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Low-level filter to perform Quoted-Printable encoding.</p>
+
+	
+
+<p>Note: The simplest use of this function is to encode a string into it's
+Quoted-Printable transfer content encoding. Notice the extra parenthesis around
+the call to <a href="##(mime).qp">mime.qp</a>, to discard the second return value.</p>
+<pre><code>print((mime.qp("maçã")))
+--&gt; ma=E7=E3=
+</code></pre>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string C </em></code>: </p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string D </em></code>: 
+(optional)</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string marker </em></code>: </p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>With</p>
+<pre><code>A, B = mime.qp(C [, D, marker])
+</code></pre>
+<p><em>A</em> is the encoded version of the largest prefix of <em>C..D</em> that can be encoded
+unambiguously. <em>B</em> has the remaining bytes of <em>C..D</em>, before encoding. If <em>D</em>
+is <em>#nil</em>, <em>A</em> is padded with the encoding of the remaining bytes of <em>C</em>.
+Throughout encoding, occurrences of CRLF are replaced by the <em>marker</em>, which
+itself defaults to CRLF.</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).qpwrp" >
+<strong>mime.qpwrp(n, B, length)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Low-level filter to break Quoted-Printable text into lines.</p>
+
+	
+
+<p>Note: Besides breaking text into lines, this function makes sure the line
+breaks don't fall in the middle of an escaped character combination. Also, this
+function only breaks lines that are bigger than <em>length</em> bytes.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number n </em></code>: </p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string B </em></code>: 
+(optional)</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number length </em></code>: 
+(optional)</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>With</p>
+<pre><code>A, m = mime.qpwrp(n [, B, length])
+</code></pre>
+<p><em>A</em> is the decoded version of the largest prefix of <em>C..D</em> that can be decoded
+unambiguously. <em>B</em> has the remaining bytes of C..D, before decoding. If <em>D</em> is
+<em>#nil</em>, A is the empty string and B returns whatever couldn't be decoded. </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).stuff" >
+<strong>mime.stuff()</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Creates and returns a filter that performs stuffing of SMTP messages.</p>
+
+	
+
+<p>Note: The <a href="##(smtp).send">smtp.send</a> function uses this filter automatically. You don't need
+to chain it with your source, or apply it to your message body. </p>
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).unb64" >
+<strong>mime.unb64(C, D)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Low-level filter to perform Base64 decoding.</p>
+
+	
+
+<p>Note: The simplest use of this function is to decode a string from it's Base64
+transfer content encoding. Notice the extra parenthesis around the call to
+<a href="##(mime).unqp">mime.unqp</a>, to discard the second return value.</p>
+<pre><code>print((mime.unb64("ZGllZ286cGFzc3dvcmQ=")))
+--&gt; diego:password
+</code></pre>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string C </em></code>: </p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string D </em></code>: 
+(optional)</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>With</p>
+<pre><code>A, B = mime.unb64(C [, D])
+</code></pre>
+<p> <em>A</em> is the decoded version of the largest prefix of <em>C..D</em> that can be decoded
+ unambiguously. B has the remaining bytes of <em>C..D</em>, before decoding. If <em>D</em> is
+ <em>#nil</em>, <em>A</em> is the empty string and <em>B</em> returns whatever couldn't be decoded. </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).unqp" >
+<strong>mime.unqp(n, B, length)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Low-level filter to break text into lines with CRLF marker.</p>
+
+	
+
+<p>Text is assumed to be in the <a href="##(mime).normalize">mime.normalize</a> form.</p>
+
+<p>Note: This function only breaks lines that are bigger than <em>length</em> bytes.
+The resulting line length does not include the CRLF marker.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#number n </em></code>: </p>
+
+				</li>
+				<li>
+				
+<p><code><em> B </em></code>: 
+(optional)</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number length </em></code>: 
+(optional)</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>With</p>
+<pre><code>A, m = mime.wrp(n [, B, length])
+</code></pre>
+<p><em>A</em> is a copy of <em>B</em>, broken into lines of at most length bytes (defaults to
+76). <em>'n'</em> should tell how many bytes are left for the first line of <em>B</em> and
+<em>'m'</em> returns the number of bytes left in the last line of <em>A</em>. </p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(mime).wrap" >
+<strong>mime.wrap(style, length)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Returns a filter that breaks data into lines.</p>
+
+	
+
+<p>For example, to create an encoding filter for the Quoted-Printable transfer
+content encoding of text data, do the following:</p>
+
+<pre><code>qp = ltn12.filter.chain(
+  mime.normalize(),
+  mime.encode("quoted-printable"),
+  mime.wrap("quoted-printable")
+)
+</code></pre>
+
+<p>Note: To break into lines with a different end-of-line convention, apply a
+normalization filter after the line break filter.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string style </em></code>: 
+The <em>"text"</em> line-wrap filter simply breaks text into
+ lines by inserting CRLF end-of-line markers at appropriate positions. The
+ <em>"base64"</em> line-wrap filter works just like the default <em>"text"</em> line-wrap
+ filter with default length. The function can also wrap "quoted-printable"
+ lines, taking care not to break lines in the middle of an escaped character.
+ In that case, the line length is fixed at 76. </p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number length </em></code>: 
+(optional) Available when <em>style</em> is <em>"text"</em>, defaults
+ 76. </p>
+
+
+				</li>
+		</ul>
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>

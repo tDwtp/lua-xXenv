@@ -1,0 +1,709 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="stylesheet.css" type="text/css"/>
+	</head>
+<body>
+<div id="container">
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div>
+<div id="main">
+	<div id="navigation">
+		<h2>Modules</h2>
+			<ul><li>
+				<a href="index.html">index</a>
+			</li></ul>
+		<ul>
+					<li><a href="base64.html">base64</a></li>
+					<li><a href="bit.html">bit</a></li>
+					<li><a href="coroutine.html">coroutine</a></li>
+					<li><a href="debug.html">debug</a></li>
+					<li><a href="des56.html">des56</a></li>
+					<li><a href="ex.html">ex</a></li>
+					<li><a href="global.html">global</a></li>
+					<li><a href="io.html">io</a></li>
+					<li>lfs</li>
+					<li><a href="ltn12.html">ltn12</a></li>
+					<li><a href="luacurl.html">luacurl</a></li>
+					<li><a href="luasql.html">luasql</a></li>
+					<li><a href="math.html">math</a></li>
+					<li><a href="md5.html">md5</a></li>
+					<li><a href="mime.html">mime</a></li>
+					<li><a href="os.html">os</a></li>
+					<li><a href="package.html">package</a></li>
+					<li><a href="socket.html">socket</a></li>
+					<li><a href="socket.ftp.html">socket.ftp</a></li>
+					<li><a href="socket.http.html">socket.http</a></li>
+					<li><a href="socket.smtp.html">socket.smtp</a></li>
+					<li><a href="socket.url.html">socket.url</a></li>
+					<li><a href="string.html">string</a></li>
+					<li><a href="table.html">table</a></li>
+					<li><a href="wx.html">wx</a></li>
+					<li><a href="wxaui.html">wxaui</a></li>
+					<li><a href="wxlua.html">wxlua</a></li>
+					<li><a href="wxstc.html">wxstc</a></li>
+		</ul>
+	</div>
+	<div id="content">
+   <h1>Module <code>lfs</code></h1>
+   
+<p>LuaFileSystem.</p>
+
+	<h2><a id="#(lfs)" >Type <code>lfs</code></a></h2>
+		<table class="function_list">
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).attributes">lfs.attributes(filepath, aname)</a></td>
+		<td class="summary">
+<p>This function uses stat internally thus if the given filepath is a symbolic
+link, it is followed (if it points to another link the chain is followed
+recursively) and the information is about the file it refers to.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).chdir">lfs.chdir(path)</a></td>
+		<td class="summary">
+<p>Changes the current working directory to the given path.</p>
+
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).currentdir">lfs.currentdir(path)</a></td>
+		<td class="summary">
+<p>Returns a string with the current working directory.</p>
+
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).lock">lfs.lock(filehandle, mode, start, length)</a></td>
+		<td class="summary">
+<p>Locks a file or a part of it.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).lock_dir">lfs.lock_dir(path, seconds_stale)</a></td>
+		<td class="summary">
+<p>Creates a lockfile (called lockfile.lfs) in path if it does not exist and
+returns the lock.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).mkdir">lfs.mkdir(dirname)</a></td>
+		<td class="summary">
+<p>Creates a new directory.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).rmdir">lfs.rmdir(dirname)</a></td>
+		<td class="summary">
+<p>Removes an existing directory.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).setmode">lfs.setmode(file, mode)</a></td>
+		<td class="summary">
+<p>Sets the writing mode for a file.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).symlinkattributes">lfs.symlinkattributes(filepath, aname)</a></td>
+		<td class="summary">
+<p>Identical to <a href="##(lfs).attributes">lfs.attributes</a> except that it obtains information about the link
+itself (not the file it refers to).</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).touch">lfs.touch(filepath, atime, mtime)</a></td>
+		<td class="summary">
+<p>Set access and modification times of a file.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(lfs).unlock">lfs.unlock(filehandle, start, length)</a></td>
+		<td class="summary">
+<p>Unlocks a file or a part of it.</p>
+</td>
+		</tr>
+	</table>
+
+	<h2><a id="#(lfs)" >Type <code>lfs</code></a></h2>
+		<h3>Field(s)</h3>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).attributes" >
+<strong>lfs.attributes(filepath, aname)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>This function uses stat internally thus if the given filepath is a symbolic
+link, it is followed (if it points to another link the chain is followed
+recursively) and the information is about the file it refers to.</p>
+
+	
+<p>To obtain
+information about the link itself, see function <a href="##(lfs).symlinkattributes">lfs.symlinkattributes</a>.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em> filepath </em></code>: 
+The filename.</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#string aname </em></code>: 
+Where aname is an attribute. The attributes are described
+as follows; attribute mode is a string, all the others are numbers, and the
+time related attributes use the same time reference of os.time:</p>
+
+<ul>
+    <li>dev: on Unix systems, this represents the device that the inode resides on.
+       On Windows systems, represents the drive number of the disk containing
+       the file</li>
+    <li>ino: on Unix systems, this represents the inode number. On Windows systems
+       this has no meaning</li>
+    <li>mode: string representing the associated protection mode (the values could
+        be file, directory, link, socket, named pipe, char device, block
+        device or other)</li>
+    <li>nlink: number of hard links to the file</li>
+    <li>uid: user-id of owner (Unix only, always 0 on Windows)</li>
+    <li>gid: group-id of owner (Unix only, always 0 on Windows)</li>
+    <li>rdev: on Unix systems, represents the device type, for special file inodes.
+        On Windows systems represents the same as dev</li>
+    <li>access: time of last access</li>
+    <li>modification: time of last data modification</li>
+    <li>change: time of last file status change</li>
+    <li>size: file size, in bytes</li>
+    <li>blocks: block allocated for file; (Unix only)</li>
+    <li>blksize: optimal file system I/O blocksize; (Unix only)</li>
+</ul>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em>#table:</em>
+File attributes corresponding to filepath If the second optional
+ argument is given, then only the value of the named attribute is returned
+ (this use is equivalent to lfs.attributes(filepath).aname, but the table is
+ not created and only one attribute is retrieved from the O.S.).</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In error cases, error string is provided.</p>
+
+
+				</li>
+			</ol>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).chdir" >
+<strong>lfs.chdir(path)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Changes the current working directory to the given path.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em> path </em></code>: 
+Targeted directory</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+<p><em>#nil, #string:</em>
+In error cases, error string is provided.</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).currentdir" >
+<strong>lfs.currentdir(path)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Returns a string with the current working directory.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string path </em></code>: 
+Directory to browse</p>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em>#string:</em>
+Current working directory</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In error cases, error string is provided.</p>
+
+<hr/>
+<p>Lua iterator over the entries of a given directory. Each time the iterator is
+called with dir_obj it returns a directory entry's name as a string, or nil
+if there are no more entries. You can also iterate by calling <code>dir_obj:next()</code>,
+and explicitly close the directory before the iteration finished with
+<code>dir_obj:close()</code>. Raises an error if path is not a directory.</p>
+
+
+				</li>
+				<li>
+				
+
+<p>Lua iterator over the entries of a given directory.</p>
+
+
+				</li>
+			</ol>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).lock" >
+<strong>lfs.lock(filehandle, mode, start, length)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Locks a file or a part of it.</p>
+
+	
+
+<p>This function works on open files; the file
+handle should be specified as the first argument. The string mode could be
+either r (for a read/shared lock) or w (for a write/exclusive lock). The
+optional arguments start and length can be used to specify a starting point
+and its length; both should be numbers.
+Returns true if the operation was successful; in case of error, it returns
+nil plus an error string.</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em> filehandle </em></code>: 
+Opened file</p>
+
+				</li>
+				<li>
+				
+<p><code><em> mode </em></code>: 
+<em>"r"</em> or <em>"w"</em></p>
+
+				</li>
+				<li>
+				
+<p><code><em> start </em></code>: 
+(optional) Starting point.</p>
+
+				</li>
+				<li>
+				
+<p><code><em> length </em></code>: 
+(optional)</p>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em>#boolean:</em>
+true if the operation was successful</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In error cases, error string is provided.</p>
+
+
+				</li>
+			</ol>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).lock_dir" >
+<strong>lfs.lock_dir(path, seconds_stale)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Creates a lockfile (called lockfile.lfs) in path if it does not exist and
+returns the lock.</p>
+
+	
+<p>If the lock already exists checks it it's stale, using the second parameter
+(default for the second parameter is INT_MAX, which in practice means the
+lock will never be stale. To free the the lock call lock:free().
+In particular,
+if the lock exists and is not stale it returns the "File exists" message.</p>
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em> path </em></code>: 
+to lock</p>
+
+				</li>
+				<li>
+				
+<p><code><em> seconds_stale </em></code>: 
+tried when path already contains lockfile.lfs .</p>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em><a href="io.html##(file)">io#file</a>:</em>
+lock In case of success</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In error cases, error string is provided.</p>
+
+
+				</li>
+			</ol>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).mkdir" >
+<strong>lfs.mkdir(dirname)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Creates a new directory.</p>
+
+	
+
+<p>The argument is the name of the new directory.
+Returns true if the operation was successful; in case of error, it returns
+nil plus an error string.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string dirname </em></code>: 
+Name of the new directory.</p>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em>#boolean:</em>
+true if the operation was successful</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In error cases, error string is provided.</p>
+
+
+				</li>
+			</ol>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).rmdir" >
+<strong>lfs.rmdir(dirname)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Removes an existing directory.</p>
+
+	
+
+<p>The argument is the name of the directory.
+Returns true if the operation was successful; in case of error, it returns
+nil plus an error string.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#string dirname </em></code>: 
+Name of the directory to delete.</p>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em>#boolean:</em>
+true if the operation was successful</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In error cases, error string is provided.</p>
+
+
+				</li>
+			</ol>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).setmode" >
+<strong>lfs.setmode(file, mode)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Sets the writing mode for a file.</p>
+
+	
+
+<p>The mode string can be either binary or
+text. Returns the previous mode string for the file. This function is <strong>only
+available in Windows</strong>, so you may want to make sure that lfs.setmode exists
+before using it.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em> file </em></code>: </p>
+
+				</li>
+				<li>
+				
+<p><code><em> mode </em></code>: 
+The mode string can be either binary or text.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>The previous mode string for the file.</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).symlinkattributes" >
+<strong>lfs.symlinkattributes(filepath, aname)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Identical to <a href="##(lfs).attributes">lfs.attributes</a> except that it obtains information about the link
+itself (not the file it refers to).</p>
+
+	
+
+<p>This function is <strong>not available in Windows</strong> so you may want to make sure
+that lfs.symlinkattributes exists before using it.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em> filepath </em></code>: 
+The filename.</p>
+
+				</li>
+				<li>
+				
+<p><code><em> aname </em></code>: 
+An attribute name as in <a href="##(lfs).attributes">lfs.attributes</a>.</p>
+
+				</li>
+		</ul>
+		<h3>Return value</h3>
+				
+
+<p>As in <a href="##(lfs).attributes">lfs.attributes</a>.</p>
+
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).touch" >
+<strong>lfs.touch(filepath, atime, mtime)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Set access and modification times of a file.</p>
+
+	
+
+<p>This function is a bind to utime function. The first argument is the
+filename, the second argument (atime) is the access time, and the third
+argument (mtime) is the modification time.
+Both times are provided in seconds (which should be generated with Lua
+standard function os.time). If the modification time is omitted, the access
+time provided is used; if both times are omitted, the current time is used.
+Returns true if the operation was successful; in case of error, it returns
+nil plus an error string.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em> filepath </em></code>: 
+The filename.</p>
+
+				</li>
+				<li>
+				
+<p><code><em> atime </em></code>: 
+The access time in seconds.</p>
+
+				</li>
+				<li>
+				
+<p><code><em> mtime </em></code>: 
+(optional) The modification time in seconds.</p>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em>#boolean:</em>
+true if the operation was successful.</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In error cases, error string is provided.</p>
+
+
+				</li>
+			</ol>
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(lfs).unlock" >
+<strong>lfs.unlock(filehandle, start, length)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Unlocks a file or a part of it.</p>
+
+	
+
+<p>This function works on open files; the file handle should be specified as
+the first argument. The optional arguments start and length can be used to
+specify a starting point and its length; both should be numbers.
+Returns true if the operation was successful; in case of error, it returns
+nil plus an error string.</p>
+
+
+		<h3>Parameters</h3>
+		<ul>
+				<li>
+				
+<p><code><em> filehandle </em></code>: 
+Opened file</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number start </em></code>: 
+(optional) Starting point.</p>
+
+				</li>
+				<li>
+				
+<p><code><em>#number length </em></code>: 
+(optional)</p>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em>#boolean:</em>
+true if the operation was successful.</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In error cases, error string is provided.</p>
+
+
+				</li>
+			</ol>
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>

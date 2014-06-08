@@ -1,0 +1,306 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<link rel="stylesheet" href="stylesheet.css" type="text/css"/>
+	</head>
+<body>
+<div id="container">
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div>
+<div id="main">
+	<div id="navigation">
+		<h2>Modules</h2>
+			<ul><li>
+				<a href="index.html">index</a>
+			</li></ul>
+		<ul>
+					<li><a href="base64.html">base64</a></li>
+					<li><a href="bit.html">bit</a></li>
+					<li><a href="coroutine.html">coroutine</a></li>
+					<li><a href="debug.html">debug</a></li>
+					<li><a href="des56.html">des56</a></li>
+					<li><a href="ex.html">ex</a></li>
+					<li><a href="global.html">global</a></li>
+					<li><a href="io.html">io</a></li>
+					<li><a href="lfs.html">lfs</a></li>
+					<li><a href="ltn12.html">ltn12</a></li>
+					<li><a href="luacurl.html">luacurl</a></li>
+					<li><a href="luasql.html">luasql</a></li>
+					<li><a href="math.html">math</a></li>
+					<li><a href="md5.html">md5</a></li>
+					<li><a href="mime.html">mime</a></li>
+					<li><a href="os.html">os</a></li>
+					<li><a href="package.html">package</a></li>
+					<li><a href="socket.html">socket</a></li>
+					<li>socket.ftp</li>
+					<li><a href="socket.http.html">socket.http</a></li>
+					<li><a href="socket.smtp.html">socket.smtp</a></li>
+					<li><a href="socket.url.html">socket.url</a></li>
+					<li><a href="string.html">string</a></li>
+					<li><a href="table.html">table</a></li>
+					<li><a href="wx.html">wx</a></li>
+					<li><a href="wxaui.html">wxaui</a></li>
+					<li><a href="wxlua.html">wxlua</a></li>
+					<li><a href="wxstc.html">wxstc</a></li>
+		</ul>
+	</div>
+	<div id="content">
+   <h1>Module <code>socket.ftp</code></h1>
+   
+<p> FTP (File Transfer Protocol) is a protocol used to transfer files between hosts.</p>
+
+   
+
+<p> The ftp namespace offers thorough support to FTP, under a simple interface.
+ The implementation conforms to <a href="http://www.ietf.org/rfc/rfc0959.txt">RFC 959</a>.</p>
+
+<p> High level functions are provided supporting the most common operations. These
+ high level functions are implemented on top of a lower level interface. Using
+ the low-level interface, users can easily create their own functions to access
+ any operation supported by the FTP protocol. For that, check the implementation.</p>
+
+<p> To really benefit from this module, a good understanding of
+ <a href="http://lua-users.org/wiki/FiltersSourcesAndSinks">LTN012, Filters sources and sinks</a>
+ is necessary.</p>
+
+<p> URLs MUST conform to <a href="http://www.ietf.org/rfc/rfc1738.txt">RFC 1738</a>, that is,
+ an URL is a string in the form:</p>
+
+<pre><code>[ftp://][&lt;user&gt;[:&lt;password&gt;]@]&lt;host&gt;[:&lt;port&gt;][/&lt;path&gt;][type=a|i] 
+</code></pre>
+
+<p> The following constants in the namespace can be set to control the default
+ behavior of the FTP module:</p>
+
+<ul>
+    <li><em>PASSWORD</em>: default anonymous password.</li>
+    <li><em>PORT</em>: default port used for the control connection;</li>
+    <li><em>TIMEOUT</em>: sets the timeout for all I/O operations;</li>
+    <li><em>USER</em>: default anonymous user;</li>
+</ul>
+
+			<h2>Usage:</h2>
+		<pre class="example"><code>  -- loads the FTP module and any libraries it requires
+  local ftp = require("socket.ftp")
+</code></pre>
+
+	<h2><a id="#(socket.ftp)" >Type <code>socket.ftp</code></a></h2>
+		<table class="function_list">
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(socket.ftp).get">socket.ftp.get(url)</a></td>
+		<td class="summary">
+<p>Downloads the contents of a URL.</p>
+</td>
+		</tr>
+		<tr>
+		<td class="name" nowrap="nowrap"><a href="##(socket.ftp).put">socket.ftp.put(table)</a></td>
+		<td class="summary">
+<p>Uploads a string of content into a URL.</p>
+
+</td>
+		</tr>
+	</table>
+
+	<h2><a id="#(socket.ftp)" >Type <code>socket.ftp</code></a></h2>
+		<h3>Field(s)</h3>
+		<dl class="function">
+<dt>
+
+<a id="#(socket.ftp).get" >
+<strong>socket.ftp.get(url)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Downloads the contents of a URL.</p>
+
+	
+
+<p>The get function has two forms. The simple form has fixed functionality: it
+downloads the contents of a URL and returns it as a string. The generic form
+allows a lot more control, as explained below.
+   -- call to simple form
+   ftp.get(url)</p>
+
+<p>   -- Call to generic form
+   ftp.get{</p>
+<pre><code> host = string,
+ sink = LTN12 sink,
+ argument or path = string,
+ [user = string,]
+ [password = string]
+ [command = string,]
+ [port = number,]
+ [type = string,]
+ [step = LTN12 pump step,]
+ [create = function]
+</code></pre>
+<p>   }</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em> url </em></code>: 
+URL of content to download as a <em>#string</em> or if the argument of the
+ get function is a <em>#table</em>, the function expects at least the fields <em>host,
+ sink,</em> and one of <em>argument</em> or <em>path</em> (<em>argument</em> takes precedence). <em>Host</em>
+ is the server to connect to. <em>Sink</em> is the simple
+ <a href="http://lua-users.org/wiki/FiltersSourcesAndSinks">LTN12</a> sink that will
+ receive the downloaded data. <em>Argument</em> or <em>path</em> give the target path to the
+ resource in the server. The optional arguments are the following:</p>
+
+<ul>
+    <li><em>user, password</em> :User name and password used for authentication. Defaults
+    to <em>"ftp:anonymous@anonymous.org"</em>;</li>
+    <li><em>command</em>: The FTP command used to obtain data. Defaults to <em>"retr"</em>, but
+    see example below;</li>
+    <li><em>port</em>: The port to used for the control connection. Defaults to 21;</li>
+    <li><em>type</em>: The transfer mode. Can take values "i" or "a". Defaults to whatever
+    is the server default;</li>
+    <li><em>step</em>: <a href="http://lua-users.org/wiki/FiltersSourcesAndSinks">LTN12</a> pump step
+    function used to pass data from the server to the sink. Defaults to the LTN12
+    <em>pump.step</em> function;</li>
+    <li><em>create</em>: An optional function to be used instead of <a href="socket.html##(socket).tcp">socket#socket.tcp</a>
+    when the communications socket is created. </li>
+</ul>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em>#string:</em>
+If successful, the simple version returns the URL contents as a
+ <em>#string</em>.</p>
+
+				</li>
+				<li>
+				
+<p><em>#number:</em>
+If successful, the generic function returns 1.</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In case of error, <em>#nil</em> and an error message describing
+ the error.</p>
+
+				</li>
+			</ol>
+			<h3>Usages:</h3>
+		<ul>
+			<li><pre class="example"><code>-- load the ftp support
+local ftp = require("socket.ftp")
+
+-- Log as user "anonymous" on server "ftp.tecgraf.puc-rio.br",
+-- and get file "lua.tar.gz" from directory "pub/lua" as binary.
+f, e = ftp.get("ftp://ftp.tecgraf.puc-rio.br/pub/lua/lua.tar.gz;type=i")</code></pre></li>
+			<li><pre class="example"><code>-- load needed modules
+local ftp = require("socket.ftp")
+local ltn12 = require("ltn12")
+local url = require("socket.url")
+
+-- a function that returns a directory listing
+function nlst(u)
+    local t = {}
+    local p = url.parse(u)
+    p.command = "nlst"
+    p.sink = ltn12.sink.table(t)
+    local r, e = ftp.get(p)
+    return r and table.concat(t), e
+end
+</code></pre></li>
+		</ul>
+
+</dd>
+</dl>
+		<dl class="function">
+<dt>
+
+<a id="#(socket.ftp).put" >
+<strong>socket.ftp.put(table)</strong>
+</a>
+</dt>
+<dd>
+	
+<p>Uploads a string of content into a URL.</p>
+
+
+		<h3>Parameter</h3>
+		<ul>
+				<li>
+				
+<p><code><em>#table table </em></code>: 
+The function expects at least the fields <em>host, source</em>,
+ and one of <em>argument</em> or <em>path</em> (<em>argument</em> takes precedence). <em>Host</em> is the
+ server to connect to. <em>Source</em> is the simple
+ <a href="http://lua-users.org/wiki/FiltersSourcesAndSinks">LTN12</a> source that will
+ provide the contents to be uploaded. <em>Argument</em> or <em>path</em> give the target path
+ to the resource in the server. The optional arguments are the following:</p>
+
+<ul>
+    <li><em>user, password</em>: User name and password used for authentication. Defaults
+    to <em>"ftp:anonymous@anonymous.org"</em>;</li>
+    <li><em>command</em>: The FTP command used to send data. Defaults to <em>"stor"</em>, but see
+    example below;</li>
+    <li><em>port</em>: The port to used for the control connection. Defaults to 21;</li>
+    <li><em>type</em>: The transfer mode. Can take values <em>"i"</em> or <em>"a"</em>. Defaults to
+    whatever is the server default;</li>
+    <li><em>step</em>: <a href="http://lua-users.org/wiki/FiltersSourcesAndSinks">LTN12</a> pump step
+    function used to pass data from the server to the sink. Defaults to the LTN12
+    <em>pump.step</em> function;</li>
+    <li><em>create</em>: An optional function to be used instead of <a href="socket.html##(socket).tcp">socket#socket.tcp</a>
+    when the communications socket is created. </li>
+</ul>
+
+				</li>
+		</ul>
+		<h3>Return values</h3>
+			<ol>
+				<li>
+				
+<p><em>#number:</em>
+1 If successful</p>
+
+				</li>
+				<li>
+				
+<p><em>#nil, #string:</em>
+In case of error, <em>#nil</em> and an error message describing
+ the error.</p>
+
+				</li>
+			</ol>
+			<h3>Usage:</h3>
+		<pre class="example"><code>-- load the ftp support
+local ftp = require("socket.ftp")
+local ltn12 = require("ltn12")
+
+-- Log as user "fulano" on server "ftp.example.com",
+-- using password "silva", and append to the remote file "LOG", sending the
+-- contents of the local file "LOCAL-LOG"
+f, e = ftp.put{
+  host = "ftp.example.com", 
+  user = "fulano",
+  password = "silva",
+  command = "appe",
+  argument = "LOG",
+  source = ltn12.source.file(io.open("LOCAL-LOG", "r"))
+}
+</code></pre>
+
+</dd>
+</dl>
+
+</div>
+
+</div>
+</body>
+</html>
