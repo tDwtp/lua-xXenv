@@ -12,7 +12,6 @@ in the function 'M.new_comment(lines)' (line 170) instead of the default return-
 line 'return setmetatable({ lineinfo=lineinfo, unpack(lines) }, MT.comment)'
 write:
 [=[
-
     local tt = { lineinfo=lineinfo }
     for k,v in pairs(lines) do tt[k] = v end
     return setmetatable(tt, MT.comment)
