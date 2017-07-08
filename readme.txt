@@ -17,7 +17,7 @@ write:
     return setmetatable(tt, MT.comment)
 ]=]
 
-DO NOT (DO FUCKING NOT) EDIT THE FILES
+DO NOT (DO FREAKING NOT) EDIT THE FILES
 'wx.lua', 'wxaui.lua', 'wxstc.lua', wxlua.lua',
 'wx.html', 'wxaui.html', 'wxstc.html' or wxlua.html'
 THEY WILL BE RESET UNTIL I FOUND A SOLUTION FOR THE DERIVATION AND CONSTRUCTORS
